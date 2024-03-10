@@ -8,6 +8,6 @@ I'm playing with the idea of a light and minimal version of Obsidian Publish foc
 Anyway, it works quite well, although it has some bug with `sessionStorage`: sometimes you open the page again and the sidebars are hidden instead to be open...
 
 
-## Social box
+## Social box
 
 An elegant HTML social box. I have generated and embedded the svg icons. I have put the services that I use, so you may have to adapt the code with extra icons.
