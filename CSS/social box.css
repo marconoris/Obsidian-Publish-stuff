@@ -1,0 +1,74 @@
+.boxed {  
+padding: 15px;  
+border: 1px solid #bfb9b9;  
+margin: 50px auto 50px auto;  
+border-radius: 10px;  
+max-width: 700px;  
+text-align: center;  
+}  
+.site-footer .links {  
+display: none;  
+}  
+.social {  
+margin: 10px auto 5px auto;  
+display: flex;  
+flex-flow: row wrap;  
+justify-content: center;  
+gap: 5px;  
+}  
+.social svg {  
+width: auto;  
+height: 15px;  
+vertical-align: middle;  
+}  
+.theme-dark .social svg .cls-1,  
+.theme-dark .chooser .social svg .cls-2 {  
+fill: #666;  
+}  
+.theme-light .social svg .cls-1,  
+.theme-light .social svg .cls-2 {  
+fill: #a2a2a2;  
+}  
+.social svg .cls-0 {  
+fill: none;  
+}  
+.social svg#mailme {  
+border-radius: 2px;  
+background: none;  
+width: auto;  
+height: 12px;  
+gap: 33px;  
+}  
+.social svg#portfolio {  
+height: 18px;  
+}  
+.social svg#blog {  
+height: 20px;  
+}  
+.social svg#behance {  
+background: none;  
+width: auto;  
+height: 13px;  
+}  
+.social svg#face {  
+border-radius: 2px;  
+}  
+.social a,  
+.chooser .social a:hover {  
+background: none;  
+text-decoration: none;  
+}  
+.social a {  
+margin-right: 15px;  
+}  
+.social a:last-child {  
+margin-right: 0px!important;  
+}  
+.theme-dark .social svg .cls-1,  
+.chooser .social svg .cls-2 {  
+fill: #8b8b8b;  
+}  
+.site-footer .social {  
+display: block;  
+text-align: right;  
+}
