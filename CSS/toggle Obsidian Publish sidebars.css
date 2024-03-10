@@ -55,6 +55,11 @@ body.theme-dark:has(.header-visible)  {
     background-color: var(--background-primary);
 }
 
+@media screen and (max-width: 1024px) and (orientation: portrait) {
+    #toggle-sidebar-btn {
+        display: none;
+    }
+}
 @media screen and (max-width: 1024px) {
     #toggle-sidebar-btn {
         right: 10px;
