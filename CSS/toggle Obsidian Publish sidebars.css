@@ -5,13 +5,14 @@ The objective is to create a minimal and light navigation of an Obsidian Publish
 */
 
 
+
 #toggle-sidebar-btn {
     margin: 0px;
     width: 30px;
     background: none;
     padding: 5px;
     position: fixed;
-    right: 350px;
+    right: 350px; /* Optimized for stacked pages */
     top:5px;
     background: none;
     border-radius: 50%;
