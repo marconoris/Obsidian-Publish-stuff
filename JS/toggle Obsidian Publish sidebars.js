@@ -1,7 +1,6 @@
 /* 
-https://lab.marconoris.com 
+Marco Noris - https://lab.marconoris.com 
 */
-
 
 // START HIDE SIDEBARS 
 
@@ -24,35 +23,31 @@ function toggleSidebarsAndFooter() {
     siteFooter.style.display = isHidden ? '' : 'none';
     
     // Alternar la clase 'header-visible' del .site-header
-    siteHeader.classList.toggle('header-visible', !isHidden);
+    if (isHidden) {
+      siteHeader.classList.remove('header-visible');
+    } else {
+      siteHeader.classList.add('header-visible');
+    }
 
     // Cambia el icono del botón según el estado de las sidebars
     toggleButton.innerHTML = isHidden ? iconVisible : iconHidden;
-
-    // Guarda el estado actual en sessionStorage
-    sessionStorage.setItem('sidebarsVisible', !isHidden);
   }
 }
 
-// Función para verificar y aplicar el estado de visibilidad guardado
-function applySavedVisibilityState() {
+// Función para verificar y aplicar el estado de visibilidad inicial
+function applyInitialVisibilityState() {
   const rightSidebar = document.querySelector('.site-body-right-column');
   const leftSidebar = document.querySelector('.site-body-left-column');
   const siteFooter = document.querySelector('.site-footer');
   const siteHeader = document.querySelector('.site-header');
   const toggleButton = document.querySelector('#toggle-sidebar-btn');
-  
-  // Obtiene el estado de visibilidad de sessionStorage
-  const sidebarsVisible = sessionStorage.getItem('sidebarsVisible');
 
-  // Si no hay un estado guardado o el estado es 'true', muestra las sidebars
-  const shouldBeVisible = sidebarsVisible === null || sidebarsVisible === 'true';
-
-  rightSidebar.style.display = shouldBeVisible ? '' : 'none';
-  leftSidebar.style.display = shouldBeVisible ? '' : 'none';
-  siteFooter.style.display = shouldBeVisible ? '' : 'none';
-  siteHeader.classList.toggle('header-visible', !shouldBeVisible);
-  toggleButton.innerHTML = shouldBeVisible ? iconVisible : iconHidden;
+  // Asumir que las sidebars deben estar visibles inicialmente
+  rightSidebar.style.display = '';
+  leftSidebar.style.display = '';
+  siteFooter.style.display = '';
+  siteHeader.classList.remove('header-visible');
+  toggleButton.innerHTML = iconVisible;
 }
 
 // Función para crear y añadir el botón de alternar al .site-body-center-column
@@ -64,10 +59,8 @@ function addToggleButton() {
     toggleButton.id = 'toggle-sidebar-btn';
     toggleButton.setAttribute('aria-label', 'Toggle sidebars and footer');
 
-    // Establece el icono inicial del botón según el estado de visibilidad guardado
-    const sidebarsVisible = sessionStorage.getItem('sidebarsVisible');
-    const shouldBeVisible = sidebarsVisible === null || sidebarsVisible === 'true';
-    toggleButton.innerHTML = shouldBeVisible ? iconVisible : iconHidden;
+    // Establece el icono inicial del botón
+    toggleButton.innerHTML = iconVisible;
 
     // Añade el evento de clic al botón
     toggleButton.addEventListener('click', toggleSidebarsAndFooter);
@@ -82,7 +75,7 @@ function waitForSiteBodyCenterColumn() {
   const observer = new MutationObserver((mutations, obs) => {
     if (document.querySelector('.site-body-center-column')) {
       addToggleButton();
-      applySavedVisibilityState(); // Aplica el estado de visibilidad guardado
+      applyInitialVisibilityState(); // Aplica el estado de visibilidad inicial
       obs.disconnect(); // Detiene el observador una vez que el .site-body-center-column ha sido encontrado
     }
   });
