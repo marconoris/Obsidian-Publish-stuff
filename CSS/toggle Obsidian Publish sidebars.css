@@ -3,17 +3,14 @@
 https://lab.marconoris.com
 The objective is to create a minimal and light navigation of an Obsidian Publish website focused on reading
 */
-
-
-
 #toggle-sidebar-btn {
     margin: 0px;
     width: 30px;
     background: none;
     padding: 5px;
     position: fixed;
-    right: 350px; /* Optimized for stacked pages */
-    top:5px;
+    right: 350px;
+    top:20px;
     background: none;
     border-radius: 50%;
     background: var(--background-primary);
@@ -22,7 +19,8 @@ The objective is to create a minimal and light navigation of an Obsidian Publish
 .theme-dark #toggle-sidebar-btn {
     top: 25px;
 }
-.theme-dark .site-body:has(.header-visible) #toggle-sidebar-btn {
+
+.site-body:has(.header-visible) #toggle-sidebar-btn {
     top: 5px;
 }
 #toggle-sidebar-btn:hover {
@@ -41,6 +39,14 @@ cursor: pointer;
 .theme-dark.sliding-windows:has(.header-visible) .render-container,
 body.theme-dark:has(.header-visible)  {
     background-color: #131414!important;
+}
+.site-body:has(.header-visible) .render-container-inner {
+    margin: 0 auto;
+}
+.sliding-windows:has(.header-visible) .publish-renderer {
+    position: sticky;
+    width: 800px;
+    flex: 0 0 800px;
 }
 .site-body:has(.header-visible) .site-body-center-column {
     box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
