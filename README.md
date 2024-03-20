@@ -9,3 +9,8 @@ I'm playing with the idea of a light and minimal version of Obsidian Publish foc
 ## Social box
 
 An elegant HTML social box. I have generated and embedded the svg icons. I have put the services that I use, so you may have to adapt the code with extra icons.
+
+
+## Search hotkey
+
+A small Javascript that creates a hotkey to select the search input of an Osbidian Publish website through the keyboard.
