@@ -6,7 +6,7 @@ Select the Obsidian Publihs input search by pressing "ctrl+f" keys
 
 function setupKeyboardShortcut() {
   document.addEventListener('keydown', function(e) {
-    if (e.ctrlKey && e.key === 'f') { //It is possible to change with other characters.
+    if (e.ctrlKey && e.key === 'f') { //It is possible to change with other characters. Remove 'e.ctrlKey &&' to use just "f" key.
       e.preventDefault(); // Prevent default behavior
       var searchBar = document.querySelector('.search-bar');
       if (searchBar) {
