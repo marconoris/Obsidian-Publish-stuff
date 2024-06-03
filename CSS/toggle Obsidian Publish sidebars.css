@@ -3,63 +3,98 @@
 https://lab.marconoris.com
 The objective is to create a minimal and light navigation of an Obsidian Publish website focused on reading
 */
+
+
+/************************  READER ************************/
+
 #toggle-sidebar-btn {
     margin: 0px;
     width: 30px;
     background: none;
     padding: 5px;
     position: fixed;
-    right: 350px;
-    top:20px;
+    right: 310px;
+    top: 25px;
     background: none;
     border-radius: 50%;
     background: var(--background-primary);
-    opacity: .8;
+    opacity: 1;
 }
+
+#toggle-sidebar-btn:hover {
+    background: var(--background-secondary);
+}
+
 .theme-dark #toggle-sidebar-btn {
     top: 25px;
+}
+.site-body:has(.header-visible) .page-header {
+    display: none
+}
+
+.site-body:has(.header-visible) .markdown-preview-view {
+    font-size: calc(0.8rem + 0.30vw);
+    color: var(--text-contrasted);
 }
 
 .site-body:has(.header-visible) #toggle-sidebar-btn {
     top: 5px;
+    background: transparent;
 }
+
+.site-body:has(.header-visible) #toggle-sidebar-btn:hover {
+    background: var(--background-primary);
+}
+
 #toggle-sidebar-btn:hover {
-cursor: pointer;
+    cursor: pointer;
 }
+
 .sliding-windows .site-body:has(.header-visible) #toggle-sidebar-btn {
     right: 5px;
 }
+
 .published-container.has-navigation .site-header.header-visible {
     display: block;
     position: fixed;
     top: 0;
     height: 40px;
 }
-.theme-dark.sliding-windows:has(.header-visible) .publish-renderer,
-.theme-dark.sliding-windows:has(.header-visible) .render-container,
-body.theme-dark:has(.header-visible)  {
-    background-color: #131414!important;
+
+.sliding-windows:has(.header-visible) .publish-renderer,
+.sliding-windows:has(.header-visible) .render-container,
+body:has(.header-visible) {
+    background-color: var(--background-reader);
 }
+
 .site-body:has(.header-visible) .render-container-inner {
     margin: 0 auto;
 }
+
 .sliding-windows:has(.header-visible) .publish-renderer {
     position: sticky;
     width: 800px;
     flex: 0 0 800px;
 }
+
 .site-body:has(.header-visible) .site-body-center-column {
     box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
     margin-top: 40px;
 }
-.site-body:has(.header-visible) .markdown-preview-view {
-    font-size: 18px;
-}
-.sliding-windows .site-body:has(.header-visible) .site-body-center-column, .sliding-windows .published-container.has-graph .site-body:has(.header-visible) .site-body-center-column {
+
+.sliding-windows .site-body:has(.header-visible) .site-body-center-column,
+.sliding-windows .published-container.has-graph .site-body:has(.header-visible) .site-body-center-column {
     padding-right: 0;
 }
-.sliding-windows .site-body:has(.header-visible) .render-container {
-    background-color: var(--background-primary);
+
+.site-body:has(.header-visible) site-body-center-column {
+    box-shadow: none;
+}
+
+.site-body:has(.header-visible) .callout[data-callout=circle],
+.site-body:has(.header-visible) .callout[data-callout=noteinfo],
+.site-body:has(.header-visible) .callout[data-callout=small] {
+    font-size: 85%;
 }
 
 @media screen and (max-width: 1024px) and (orientation: portrait) {
@@ -72,3 +107,5 @@ body.theme-dark:has(.header-visible)  {
         right: 10px;
     }
 }
+
+/************************  READER /************************/
