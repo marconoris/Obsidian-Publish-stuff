@@ -2,10 +2,9 @@
 Marco Noris - https://lab.marconoris.com 
 */
 
-
 // START HIDE SIDEBARS 
 
-// Use the “r” key to activate the reading view.
+// Use the “r” key to activate the reading view
 
 // Iconos SVG para los estados visible y oculto
 const iconVisible = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-maximize-2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" x2="14" y1="3" y2="10"/><line x1="3" x2="10" y1="21" y2="14"/></svg>`; // SVG para cuando las sidebars están visibles
@@ -39,7 +38,10 @@ function toggleSidebarsAndFooter() {
 
 // Añadir un evento de escucha para la tecla "r"
 document.addEventListener('keydown', function(event) {
-  if (event.key === 'r' && !event.ctrlKey && !event.metaKey && !event.altKey && !event.shiftKey) {
+  const activeElement = document.activeElement;
+  const isSearchInputFocused = activeElement && (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA');
+
+  if (event.key === 'r' && !event.ctrlKey && !event.metaKey && !event.altKey && !event.shiftKey && !isSearchInputFocused) {
     toggleSidebarsAndFooter();
   }
 });
