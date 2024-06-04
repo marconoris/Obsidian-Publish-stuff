@@ -1,7 +1,8 @@
 
 /* 
 https://lab.marconoris.com
-The objective is to create a minimal and light navigation of an Obsidian Publish website focused on reading
+The objective is to create a minimal and light navigation of an Obsidian Publish website focused on reading.
+Code adapted for sliding windows and default layout.
 */
 
 
@@ -13,28 +14,37 @@ The objective is to create a minimal and light navigation of an Obsidian Publish
     background: none;
     padding: 5px;
     position: fixed;
-    right: 310px;
-    top: 25px;
+    right: 10px;
+    top: 10px;
     background: none;
     border-radius: 50%;
     background: var(--background-primary);
     opacity: 1;
+    color: var(--component-title-color);
+}
+.sliding-windows #toggle-sidebar-btn {
+    right: 287px;
+    top: 25px;
 }
 
 #toggle-sidebar-btn:hover {
+    color: var(--color-base-100);
     background: var(--background-secondary);
 }
 
+#toggle-sidebar-btn:hover {
+    cursor: pointer;
+}
 .theme-dark #toggle-sidebar-btn {
     top: 25px;
 }
+
 .site-body:has(.header-visible) .page-header {
     display: none
 }
 
 .site-body:has(.header-visible) .markdown-preview-view {
     font-size: calc(0.8rem + 0.30vw);
-    color: var(--text-contrasted);
 }
 
 .site-body:has(.header-visible) #toggle-sidebar-btn {
@@ -43,12 +53,9 @@ The objective is to create a minimal and light navigation of an Obsidian Publish
 }
 
 .site-body:has(.header-visible) #toggle-sidebar-btn:hover {
-    background: var(--background-primary);
+    background: none;
 }
 
-#toggle-sidebar-btn:hover {
-    cursor: pointer;
-}
 
 .sliding-windows .site-body:has(.header-visible) #toggle-sidebar-btn {
     right: 5px;
@@ -68,6 +75,12 @@ body:has(.header-visible) {
 }
 
 .site-body:has(.header-visible) .render-container-inner {
+    margin: 0 auto;
+}
+body:not(.sliding-windows):has(.header-visible) .is-readable-line-width.has-outline.has-navigation .publish-renderer > .markdown-preview-view > .markdown-preview-sizer, body:not(.sliding-windows) .is-readable-line-width.has-graph.has-navigation .publish-renderer > .markdown-preview-view > .markdown-preview-sizer {
+    margin-right: inherit;
+}
+body:not(.sliding-windows):has(.header-visible) .publish-renderer > .markdown-preview-view > .markdown-preview-sizer {
     margin: 0 auto;
 }
 
