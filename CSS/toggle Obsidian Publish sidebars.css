@@ -14,8 +14,8 @@ Code adapted for sliding windows and default layout.
     background: none;
     padding: 5px;
     position: fixed;
-    right: 10px;
-    top: 10px;
+    right: 5px;
+    top: 5px;
     background: none;
     border-radius: 50%;
     background: var(--background-primary);
