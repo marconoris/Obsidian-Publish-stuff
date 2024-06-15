@@ -8,111 +8,121 @@ Code adapted for sliding windows and default layout.
 
 /************************  READER ************************/
 
-#toggle-sidebar-btn {
-    margin: 0px;
-    width: 30px;
-    background: none;
-    padding: 5px;
-    position: fixed;
-    right: 5px;
-    top: 5px;
-    background: none;
-    border-radius: 50%;
-    background: var(--background-primary);
-    opacity: 1;
-    color: var(--component-title-color);
-}
-.sliding-windows #toggle-sidebar-btn {
-    right: 287px;
-    top: 25px;
-}
+@media screen and (min-width: 751px) {
+    #toggle-sidebar-btn {
+        margin: 0px;
+        width: 30px;
+        background: none;
+        padding: 5px;
+        position: fixed;
+        right: 5px;
+        top: 5px;
+        background: none;
+        border-radius: 50%;
+        background: var(--background-primary);
+        opacity: 1;
+        color: var(--component-title-color);
+    }
+    .sliding-windows #toggle-sidebar-btn {
+        right: 287px;
+        top: 25px;
+    }
 
-#toggle-sidebar-btn:hover {
-    color: var(--color-base-100);
-    background: var(--background-secondary);
-}
+    #toggle-sidebar-btn:hover {
+        color: var(--color-base-100);
+        background: var(--background-secondary);
+    }
 
-#toggle-sidebar-btn:hover {
-    cursor: pointer;
-}
-.theme-dark #toggle-sidebar-btn {
-    top: 25px;
-}
+    #toggle-sidebar-btn:hover {
+        cursor: pointer;
+    }
+    .theme-dark #toggle-sidebar-btn {
+        top: 25px;
+    }
+    .site-body:has(.reader-view) #toggle-sidebar-btn::before {
+        content: "Press r to switch view";
+        position: absolute;
+        right: 33px;
+        color: var(--text-faint);
+        font-size: var(--font-smaller);
+    }
 
-.site-body:has(.header-visible) .page-header {
-    display: none
-}
+    .site-body:has(.reader-view) .page-header {
+        display: none
+    }
 
-.site-body:has(.header-visible) .markdown-preview-view {
-    font-size: calc(0.8rem + 0.30vw);
-}
+    .site-body:has(.reader-view) .markdown-preview-view {
+        font-size: calc(0.8rem + 0.30vw);
+    }
 
-.site-body:has(.header-visible) #toggle-sidebar-btn {
-    top: 5px;
-    background: transparent;
-}
+    .site-body:has(.reader-view) #toggle-sidebar-btn {
+        top: 5px;
+        background: transparent;
+    }
 
-.site-body:has(.header-visible) #toggle-sidebar-btn:hover {
-    background: none;
-}
+    .site-body:has(.reader-view) #toggle-sidebar-btn:hover {
+        background: none;
+    }
 
 
-.sliding-windows .site-body:has(.header-visible) #toggle-sidebar-btn {
-    right: 5px;
-}
+    .sliding-windows .site-body:has(.reader-view) #toggle-sidebar-btn {
+        right: 5px;
+    }
 
-.published-container.has-navigation .site-header.header-visible {
-    display: block;
-    position: fixed;
-    top: 0;
-    height: 40px;
-}
+    .published-container.has-navigation:has(.reader-view) .site-header {
+        display: block;
+        position: fixed;
+        top: 0;
+        height: 40px;
+    }
 
-.sliding-windows:has(.header-visible) .publish-renderer,
-.sliding-windows:has(.header-visible) .render-container,
-body:has(.header-visible) {
-    background-color: var(--background-reader);
-}
+    .sliding-windows:has(.portfolio) .publish-renderer,
+    .sliding-windows:has(.reader-view) .publish-renderer,
+    .sliding-windows:has(.reader-view) .render-container,
+    body:has(.reader-view) {
+        background-color: var(--background-reader);
+    }
+    .site-body:has(.portfolio) .render-container-inner,
+    .site-body:has(.reader-view) .render-container-inner {
+        margin: 0 auto;
+    }
+    body:not(.sliding-windows):has(.portfolio) .is-readable-line-width.has-outline.has-navigation .publish-renderer > .markdown-preview-view > .markdown-preview-sizer, 
+    body:not(.sliding-windows):has(.reader-view) .is-readable-line-width.has-outline.has-navigation .publish-renderer > .markdown-preview-view > .markdown-preview-sizer {
+        margin-right: inherit;
+    }
+    body:not(.sliding-windows):has(.portfolio) .publish-renderer > .markdown-preview-view > .markdown-preview-sizer
+    body:not(.sliding-windows):has(.reader-view) .publish-renderer > .markdown-preview-view > .markdown-preview-sizer {
+        margin: 0 auto;
+    }
 
-.site-body:has(.header-visible) .render-container-inner {
-    margin: 0 auto;
-}
-body:not(.sliding-windows):has(.header-visible) .is-readable-line-width.has-outline.has-navigation .publish-renderer > .markdown-preview-view > .markdown-preview-sizer, body:not(.sliding-windows) .is-readable-line-width.has-graph.has-navigation .publish-renderer > .markdown-preview-view > .markdown-preview-sizer {
-    margin-right: inherit;
-}
-body:not(.sliding-windows):has(.header-visible) .publish-renderer > .markdown-preview-view > .markdown-preview-sizer {
-    margin: 0 auto;
-}
+    .sliding-windows:has(.portfolio) .publish-renderer,
+    .sliding-windows:has(.reader-view) .publish-renderer {
+        position: sticky;
+        width: 800px;
+        flex: 0 0 800px;
+    }
 
-.sliding-windows:has(.header-visible) .publish-renderer {
-    position: sticky;
-    width: 800px;
-    flex: 0 0 800px;
+    .sliding-windows .site-body:has(.portfolio) .site-body-center-column,
+    .sliding-windows .published-container.has-graph .site-body:has(.portfolio) .site-body-center-column,
+    .sliding-windows .site-body:has(.reader-view) .site-body-center-column,
+    .sliding-windows .published-container.has-graph .site-body:has(.reader-view) .site-body-center-column {
+        padding-right: 0;
+    }
+    .site-body:has(.portfolio) site-body-center-column,
+    .site-body:has(.reader-view) site-body-center-column {
+        box-shadow: none;
+    }
+    .site-body:has(.reader-view) .site-body-center-column {
+        box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
+        margin-top: 40px;
+    }
 }
-
-.site-body:has(.header-visible) .site-body-center-column {
-    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
-    margin-top: 40px;
-}
-
-.sliding-windows .site-body:has(.header-visible) .site-body-center-column,
-.sliding-windows .published-container.has-graph .site-body:has(.header-visible) .site-body-center-column {
-    padding-right: 0;
-}
-
-.site-body:has(.header-visible) site-body-center-column {
-    box-shadow: none;
-}
-
-.site-body:has(.header-visible) .callout[data-callout=circle],
-.site-body:has(.header-visible) .callout[data-callout=noteinfo],
-.site-body:has(.header-visible) .callout[data-callout=small] {
-    font-size: 85%;
-}
-
-@media screen and (max-width: 1024px) and (orientation: portrait) {
+@media screen and (max-width: 750px) {
     #toggle-sidebar-btn {
         display: none;
+    }
+    .site-body:has(.portfolio) .site-body-left-column {
+        display: flex!important;
     }
 }
 @media screen and (max-width: 1024px) {
