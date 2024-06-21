@@ -1,10 +1,8 @@
-
 /* 
 https://lab.marconoris.com
 The objective is to create a minimal and light navigation of an Obsidian Publish website focused on reading.
 Code adapted for sliding windows and default layout.
 */
-
 
 /************************  READER ************************/
 
@@ -22,6 +20,7 @@ Code adapted for sliding windows and default layout.
         background: var(--background-primary);
         opacity: 1;
         color: var(--component-title-color);
+        z-index: 100;
     }
     .sliding-windows #toggle-sidebar-btn {
         right: 287px;
@@ -39,6 +38,14 @@ Code adapted for sliding windows and default layout.
     .theme-dark #toggle-sidebar-btn {
         top: 25px;
     }
+
+    /* .site-body:has(.reader-view) {
+        background-color: var(--background-secondary);
+    } */
+
+    .site-body:has(.reader-view) #toggle-sidebar-btn {
+        color: var(--component-title-color);
+    }
     .site-body:has(.reader-view) #toggle-sidebar-btn::before {
         content: "Press r to switch view";
         position: absolute;
@@ -51,6 +58,9 @@ Code adapted for sliding windows and default layout.
         display: none
     }
 
+    .site-body:has(.reader-view) .published-container .markdown-rendered h1 {
+        margin-top: 0px;
+    }
     .site-body:has(.reader-view) .markdown-preview-view {
         font-size: calc(0.8rem + 0.30vw);
     }
@@ -72,56 +82,85 @@ Code adapted for sliding windows and default layout.
     .published-container.has-navigation:has(.reader-view) .site-header {
         display: block;
         position: fixed;
-        top: 0;
-        height: 40px;
+        top: 63px;
+        right: -49px;
+        transform: rotate(90deg);
+        z-index: 10;
+    }
+    .sliding-windows .site-body:has(.reader-view) .markdown-preview-view {
+        padding-top:40px;
+    }
+    .published-container.has-navigation:has(.reader-view) .site-header .site-header-text::after {
+        display: none;
     }
 
-    .sliding-windows:has(.portfolio) .publish-renderer,
     .sliding-windows:has(.reader-view) .publish-renderer,
     .sliding-windows:has(.reader-view) .render-container,
     body:has(.reader-view) {
         background-color: var(--background-reader);
     }
-    .site-body:has(.portfolio) .render-container-inner,
     .site-body:has(.reader-view) .render-container-inner {
         margin: 0 auto;
     }
-    body:not(.sliding-windows):has(.portfolio) .is-readable-line-width.has-outline.has-navigation .publish-renderer > .markdown-preview-view > .markdown-preview-sizer, 
+
     body:not(.sliding-windows):has(.reader-view) .is-readable-line-width.has-outline.has-navigation .publish-renderer > .markdown-preview-view > .markdown-preview-sizer {
         margin-right: inherit;
     }
-    body:not(.sliding-windows):has(.portfolio) .publish-renderer > .markdown-preview-view > .markdown-preview-sizer
     body:not(.sliding-windows):has(.reader-view) .publish-renderer > .markdown-preview-view > .markdown-preview-sizer {
         margin: 0 auto;
     }
 
-    .sliding-windows:has(.portfolio) .publish-renderer,
-    .sliding-windows:has(.reader-view) .publish-renderer {
+    .sliding-windows .publish-renderer:has(.reader-view)  {
         position: sticky;
         width: 800px;
         flex: 0 0 800px;
     }
+    /* .popover.hover-popover > .markdown-embed > .markdown-embed-content .sliding-windows:has(.reader-view) .publish-renderer {
+        width: inherit;
+        flex: 0 0 800px;
+    }  */
 
-    .sliding-windows .site-body:has(.portfolio) .site-body-center-column,
-    .sliding-windows .published-container.has-graph .site-body:has(.portfolio) .site-body-center-column,
+    .sliding-windows div.hover-popover.is-loaded .publish-renderer {
+        width: inherit!important;
+        flex:inherit!important;
+    }
+
     .sliding-windows .site-body:has(.reader-view) .site-body-center-column,
     .sliding-windows .published-container.has-graph .site-body:has(.reader-view) .site-body-center-column {
-        padding-right: 0;
+        padding-right: 40px;
     }
-    .site-body:has(.portfolio) site-body-center-column,
-    .site-body:has(.reader-view) site-body-center-column {
-        box-shadow: none;
+    .site-body:has(.reader-view) .site-body-center-column {
+        box-shadow: none;    
+        padding-left: 0px;
     }
     .site-body:has(.reader-view) .site-body-center-column {
         box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
-        margin-top: 40px;
+        margin-top: 0px;
     }
+    .theme-dark .site-body:has(.reader-view) .site-body-center-column {
+        border-top: 1px solid var(--divider-color);
+    }
+    .site-body:has(.reader-view) .mod-footer,
+    .site-body:has(.reader-view) .outline-view-outer,
+    .site-body:has(.reader-view) .graph-view-outer .published-section-header,
+    .site-body:has(.reader-view) .site-footer,
+    .site-body:has(.reader-view) .search-view-container,
+    .site-body:has(.reader-view) .nav-view-outer,
+    .site-body:has(.reader-view) .site-body-right-column,
+    .site-body:has(.reader-view) .site-body-left-column-site-name,
+    .site-body:has(.reader-view) .site-body-left-column-site-logo,
+    .site-body:has(.reader-view) .site-body-left-column {
+        /*.render-container*/
+        display: none;
+    }
+
 }
+
 @media screen and (max-width: 750px) {
     #toggle-sidebar-btn {
         display: none;
     }
-    .site-body:has(.portfolio) .site-body-left-column {
+    .site-body:has(.reader-view) .site-body-left-column {
         display: flex!important;
     }
 }
@@ -131,4 +170,4 @@ Code adapted for sliding windows and default layout.
     }
 }
 
-/************************  READER /************************/
+/************************  READER END ************************/
