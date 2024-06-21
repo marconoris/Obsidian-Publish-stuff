@@ -10,6 +10,8 @@ This script activates a "reading view" on an Obsidian Publish website. This view
 - By defining the reader-view class in the cssClass property in the frontmatter.
 - Adding ?reader=true to the url of the page.
 
+Take a look here: [lab.marconoris.com](https://lab.marconoris.com)
+
 ## Social box
 
 An elegant HTML social box. I have generated and embedded the svg icons. I have put the services that I use, so you may have to adapt the code with extra icons.
