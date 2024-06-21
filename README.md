@@ -1,10 +1,14 @@
 I'm not a developer, surely the code found here is not very horthodox. Welcome improvements!
 
 
-## Toggle Obsidian Publish sidebars
+## Reader view for Obsidian Publish 
 
-I'm playing with the idea of a light and minimal version of Obsidian Publish focused on reading, hiding the sidebars. Not being a programmer, I have tried to create Javascript through chatGPT (sorry for this!). This is the result, it works quite well.
+This script activates a "reading view" on an Obsidian Publish website. This view can be useful to visualize poetic texts or to browse through images as a portfolio or simply to have a clearer view while reading. Now you can activate the "reading view" in 4 different ways:
 
+- Using a button.
+- Pressing the “r” key.
+- By defining the reader-view class in the cssClass property in the frontmatter.
+- Adding ?reader=true to the url of the page.
 
 ## Social box
 
