@@ -38,26 +38,18 @@ Code adapted for sliding windows and default layout.
     .theme-dark #toggle-sidebar-btn {
         top: 25px;
     }
-
-    /* .site-body:has(.reader-view) {
-        background-color: var(--background-secondary);
-    } */
-
     .site-body:has(.reader-view) #toggle-sidebar-btn {
         color: var(--component-title-color);
     }
     .site-body:has(.reader-view) #toggle-sidebar-btn::before {
         content: "Press r to switch view";
         position: absolute;
-        right: 33px;
+        top: 82px;
+        right: -50px;
+        transform: rotate(90deg);
         color: var(--text-faint);
         font-size: var(--font-smaller);
     }
-
-    .site-body:has(.reader-view) .page-header {
-        display: none
-    }
-
     .site-body:has(.reader-view) .published-container .markdown-rendered h1 {
         margin-top: 0px;
     }
@@ -74,7 +66,6 @@ Code adapted for sliding windows and default layout.
         background: none;
     }
 
-
     .sliding-windows .site-body:has(.reader-view) #toggle-sidebar-btn {
         right: 5px;
     }
@@ -82,10 +73,11 @@ Code adapted for sliding windows and default layout.
     .published-container.has-navigation:has(.reader-view) .site-header {
         display: block;
         position: fixed;
-        top: 63px; /* You have to adjust this value according to your site name */
-        right: -49px; /* You have to adjust this value according to your site name */
-        transform: rotate(90deg);
-        z-index: 10;
+        top: -2px;
+        right: 20px;
+	    z-index: 10; 
+        background: var(--background-primary);
+        height: auto;
     }
     .sliding-windows .site-body:has(.reader-view) .markdown-preview-view {
         padding-top:40px;
@@ -115,31 +107,20 @@ Code adapted for sliding windows and default layout.
         width: 800px;
         flex: 0 0 800px;
     }
-    /* .popover.hover-popover > .markdown-embed > .markdown-embed-content .sliding-windows:has(.reader-view) .publish-renderer {
-        width: inherit;
-        flex: 0 0 800px;
-    }  */
-
     .sliding-windows div.hover-popover.is-loaded .publish-renderer {
         width: inherit!important;
         flex:inherit!important;
     }
 
-    .sliding-windows .site-body:has(.reader-view) .site-body-center-column,
+   .sliding-windows .site-body:has(.reader-view) .site-body-center-column,
     .sliding-windows .published-container.has-graph .site-body:has(.reader-view) .site-body-center-column {
-        padding-right: 40px;
-    }
+         padding-right: 40px;
+    } 
     .site-body:has(.reader-view) .site-body-center-column {
-        box-shadow: none;    
         padding-left: 0px;
+        box-shadow: none;
     }
-    .site-body:has(.reader-view) .site-body-center-column {
-        box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
-        margin-top: 0px;
-    }
-    .theme-dark .site-body:has(.reader-view) .site-body-center-column {
-        border-top: 1px solid var(--divider-color);
-    }
+    .site-body:has(.reader-view) .page-header,
     .site-body:has(.reader-view) .mod-footer,
     .site-body:has(.reader-view) .outline-view-outer,
     .site-body:has(.reader-view) .graph-view-outer .published-section-header,
@@ -150,10 +131,8 @@ Code adapted for sliding windows and default layout.
     .site-body:has(.reader-view) .site-body-left-column-site-name,
     .site-body:has(.reader-view) .site-body-left-column-site-logo,
     .site-body:has(.reader-view) .site-body-left-column {
-        /*.render-container*/
         display: none;
     }
-
 }
 
 @media screen and (max-width: 750px) {
