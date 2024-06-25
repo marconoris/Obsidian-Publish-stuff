@@ -68,7 +68,7 @@
         display: block;
         position: fixed;
         top: 0;
-	    z-index: 10; 
+	z-index: 10; 
     }
     .sliding-windows .site-body:has(.reader-view) .markdown-preview-view {
         padding-top:40px;
