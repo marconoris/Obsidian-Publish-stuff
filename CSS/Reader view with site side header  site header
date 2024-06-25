@@ -82,8 +82,8 @@ Code adapted for sliding windows and default layout.
     .published-container.has-navigation:has(.reader-view) .site-header {
         display: block;
         position: fixed;
-        top: 63px;
-        right: -49px;
+        top: 63px; /* You have to adjust this value according to your site name */
+        right: -49px; /* You have to adjust this value according to your site name */
         transform: rotate(90deg);
         z-index: 10;
     }
