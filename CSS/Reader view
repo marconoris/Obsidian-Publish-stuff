@@ -64,7 +64,7 @@
         right: 5px;
     }
 
-    .published-container.has-navigation:has(.reader-view) .site-header {
+    .published-container:has(.reader-view) .site-header {
         display: block;
         position: fixed;
         top: 0;
@@ -73,7 +73,7 @@
     .sliding-windows .site-body:has(.reader-view) .markdown-preview-view {
         padding-top:40px;
     }
-    .published-container.has-navigation:has(.reader-view) .site-header .site-header-text::after {
+    .published-container:has(.reader-view) .site-header .site-header-text::after {
         display: none;
     }
 
